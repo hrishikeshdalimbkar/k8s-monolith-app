@@ -1,0 +1,27 @@
+server:
+  port: 9999
+
+#VARIABLES
+DB_HOST: localhost:3306
+DB_NAME: users-database
+DB_USERNAME: root
+DB_PASSWORD: root
+
+spring:
+  application:
+    name: user-application
+
+  # MYSQL PROPERTIES  
+  datasource:
+    url: jdbc:mysql://${DB_HOST}/${DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true # FOR RUNNUNG LOCALLY
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  # FOR SPRING DATA JPA
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
